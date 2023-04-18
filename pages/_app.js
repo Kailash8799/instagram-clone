@@ -17,7 +17,7 @@ export default function App({ Component, pageProps:{session,...pageProps} }) {
         progress={progress}
         onLoaderFinished={() => setProgress(0)}
       />
-    <SessionProvider session={session}>
+    <SessionProvider session={session} refetchInterval={5 * 60}>
     <RecoilRoot>
     <Sidebar />
     <Model />
