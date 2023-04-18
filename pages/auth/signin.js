@@ -16,7 +16,11 @@ const Signin = ({providers}) => {
         {!session && <div className="p-4 text-black dark:text-white">
       {providers && Object.values(providers).map((provider) => (
         <div key={provider.name} className='mx-auto text-center w-96 mt-44'>
-          <button onClick={() => signIn(provider.id,{callbackUrl:'/'})}>
+          <button 
+          onClick={(e) =>{ 
+            e.preventDefault()
+            signIn(provider.id,{callbackUrl:'/'})}
+            }>
            <span className='p-4 text-black bg-blue-500 rounded-lg dark:text-white'> Sign in with {provider.name} </span>
           </button>
         </div>
