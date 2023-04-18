@@ -27,14 +27,14 @@ export default function Home({setProgress}) {
       </Head>
      {/* {session && <Model />} */}
 
-     {!session && <div className="p-2 sm:p-4 lg:ml-64 sm:ml-16 sm:flex">
+     {session && <div className="p-2 sm:p-4 lg:ml-64 sm:ml-16 sm:flex">
         <div className="w-full sm:w-3/5">
           <div className="sm:mx-2 md:mx-10">
             <Stories />
           </div>
           <Post />
         </div>
-     {!session && <div className="hidden w-2/5 sm:block">
+     { session && <div className="hidden w-2/5 sm:block">
           <Feed />
         </div>}
         <div>
