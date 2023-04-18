@@ -26,6 +26,7 @@ const Post = () => {
           time={item.data().timestamp}
           />
         })}
+        <div className='h-20 sm:h-0'></div>
     </>
   )
 }

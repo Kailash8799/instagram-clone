@@ -51,7 +51,7 @@ const Model = () => {
    {open && <Transition.Root show={open} as={Fragment}>
         <Dialog
             as='div'
-            className='fixed inset-0 z-50 items-center justify-center h-screen mx-auto my-auto overflow-y-auto transition-transform ease-in-out delay-500 rounded-lg'
+            className='fixed inset-0 z-50 items-center justify-center h-screen mx-auto my-auto overflow-y-auto transition-transform ease-in-out delay-500 rounded-lg '
             onClose={()=>{setopen(false)}}
         >
             <div className='flex items-end justify-center px-4 pt-4 pb-20 text-center sm:block sm:p-0'>

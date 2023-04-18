@@ -25,7 +25,7 @@ export default function Home({setProgress}) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-     {session && <Model />}
+     {/* {session && <Model />} */}
 
      {session && <div className="p-2 sm:p-4 lg:ml-64 sm:ml-16 sm:flex">
         <div className="w-full sm:w-3/5">

@@ -98,7 +98,7 @@ function Onepost({id,username,userImage,img,caption,time}){
                   <h1 className="text-black dark:text-white">
                     <Link href={"/"} legacyBehavior><a>{username} &#183;&nbsp;</a></Link>
                   </h1>
-                  <h1 className="text-black dark:text-white"><Moment fromNow>{time.toDate()}</Moment></h1>
+                  <h1 className="text-black dark:text-white"><Moment fromNow>{time?.toDate()}</Moment></h1>
                 </div>
               </div>
               <div>

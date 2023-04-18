@@ -131,7 +131,39 @@ const Sidebar = () => {
             </ul>
         </div>
         </aside>
-        </div> : <div></div>}
+        <div className='sm:hidden'>
+       
+            <div className="fixed bottom-0 w-full">
+                <section id="bottom-navigation" className="fixed inset-x-0 bottom-0 z-10 block bg-white shadow">
+                    <div id="tabs" className="flex justify-between">
+                        <Link href={"/"} legacyBehavior><a className="justify-center inline-block w-full pt-2 pb-1 text-center cursor-pointer focus:text-teal-500 hover:text-teal-500">
+                            <AiFillHome size={36} className='mx-auto'/>
+                            <span className="block text-xs tab tab-home">Home</span>
+                        </a></Link>
+                        <Link href={"/explore"} legacyBehavior><a className="justify-center inline-block w-full pt-2 pb-1 text-center cursor-pointer focus:text-teal-500 hover:text-teal-500">
+                          <AiOutlineSearch size={36} className='mx-auto'/>
+                            <span className="block text-xs tab tab-kategori">Explore</span>
+                        </a></Link>
+                        <a className="justify-center inline-block w-full pt-2 pb-1 text-center cursor-pointer focus:text-teal-500 hover:text-teal-500" onClick={()=>{setopen(true)}}>
+                           <MdCreateNewFolder size={36} className='mx-auto'/>
+                            <span className="block text-xs tab tab-explore">Create</span>
+                        </a>
+                        <Link href={"/reels"} legacyBehavior><a className="justify-center inline-block w-full pt-2 pb-1 text-center cursor-pointer focus:text-teal-500 hover:text-teal-500">
+                            <SiAirplayvideo size={34} className='mx-auto'/>
+                            <span className="block text-xs tab tab-whishlist">Whishlist</span>
+                        </a></Link>
+                        <a className="justify-center inline-block w-full pt-2 pb-1 text-center cursor-pointer focus:text-teal-500 hover:text-teal-500">
+                        {session && session?.user?.image ?  
+                    <Image src={session?.user?.image} alt='userimage' width={30} height={30} className='mx-auto border rounded-full '/> : <CgProfile size={26} className='mx-auto'/>}
+                            <span className="block text-xs tab tab-account">Profile</span>
+                        </a>
+                    </div>
+                </section>
+            </div>
+        </div>
+        </div>
+        
+        : <div></div>}
     </>
   )
 }

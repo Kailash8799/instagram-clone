@@ -5,7 +5,7 @@ import LoadingBar from 'react-top-loading-bar'
 import { SessionProvider, useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import { RecoilRoot } from 'recoil'
-// import Model from '@/components/Model'
+import Model from '@/components/Model'
 
 export default function App({ Component, pageProps:{session,...pageProps} }) {
   const [progress, setProgress] = useState(0)
@@ -20,7 +20,7 @@ export default function App({ Component, pageProps:{session,...pageProps} }) {
     <SessionProvider session={session}>
     <RecoilRoot>
     <Sidebar />
-    {/* <Model /> */}
+    <Model />
     <Component {...pageProps} setProgress={setProgress}/>
     </RecoilRoot>
     </SessionProvider>
