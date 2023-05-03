@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import Image from "next/image";
 import { RxDotsHorizontal } from "react-icons/rx";
 import Link from "next/link";
@@ -56,14 +56,12 @@ function Onepost({id,username,userImage,img,caption,time}){
       
 
       const doLike = async()=>{
-          console.log("Liked")
           await setDoc(doc(db,'posts',id,'likes',session?.user?.uid),{
             username:session?.user?.username,
             timestamp:serverTimestamp()
           })
         }
         const doDisLike = async()=>{
-          console.log("disLiked")
           await deleteDoc(doc(db,'posts',id,'likes',session?.user?.uid));
         }
         const sendComment = async()=>{
@@ -78,7 +76,17 @@ function Onepost({id,username,userImage,img,caption,time}){
           })
           setcommentload(false)
         }
-      
+      const refpop = useRef(null)
+        const deletePost = async()=>{
+          if(confirm("Are you sure want to delete this post"))
+            await deleteDoc(doc(db,"posts",id))
+        }
+        const showhidepopup = ()=>{
+          if(refpop.current.classList.contains("hidden"))
+            refpop.current.classList.remove("hidden")
+          else
+            refpop.current.classList.add("hidden")
+        }
   return (
     <>
         <div className="my-4">
@@ -102,7 +110,8 @@ function Onepost({id,username,userImage,img,caption,time}){
                 </div>
               </div>
               <div>
-                <RxDotsHorizontal size={24} color="white" className="cursor-pointer"/>
+                <RxDotsHorizontal onClick={showhidepopup} size={24} color="white" className="cursor-pointer"/>
+                <div ref={refpop} className='absolute items-center justify-center hidden h-10 mx-auto bg-gray-500 border border-gray-600 w-28 '> <h1 className='mx-auto text-black dark:text-white' onClick={deletePost}>Delete Post</h1> </div>
               </div>
             </div>
             <div className="mx-auto mt-1 sm:w-2/3">

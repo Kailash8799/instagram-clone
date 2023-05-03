@@ -8,6 +8,7 @@ const Post = () => {
       useEffect(() => {
         const unsubscribe = onSnapshot(query(collection(db,'posts'),orderBy('timestamp','desc')),snapshot=>{
           setposts(snapshot.docs)
+          console.log((snapshot.docs).map((it)=>{return it.id}));
        })
        return ()=>{
         unsubscribe()
