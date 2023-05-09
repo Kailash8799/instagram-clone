@@ -18,7 +18,7 @@ const Feed = () => {
           <div className="flex items-center justify-between mt-3">
              <div className="flex items-center space-x-2">
                 <div>
-                  <img
+                  <Image
                     src={session && session?.user?.image}
                     alt="profile image"
                     width={40}

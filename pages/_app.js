@@ -10,7 +10,6 @@ import Model from '@/components/Model'
 export default function App({ Component, pageProps:{session,...pageProps} }) {
   const [progress, setProgress] = useState(0)
   const router = useRouter()
-  
   return <>
     <LoadingBar
         color='#f11946'

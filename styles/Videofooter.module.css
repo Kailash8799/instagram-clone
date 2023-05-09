@@ -1,0 +1,30 @@
+.titlefooter{
+    display: flex !important;
+    flex-direction: row !important;
+    z-index: 1000 !important;
+    align-items: center;
+}
+.footer{
+    position: relative;
+    bottom: 100px;
+    z-index: 100 !important;
+    padding: 8px;
+}
+.videoFotter_ticker{
+    display: flex;
+    flex-direction: row;
+    color: white;
+    align-items: center;
+    position: absolute;
+    bottom: -27px;
+    width: 97%;
+    justify-content: space-between;
+
+}
+/* .videoFotter_ticker > .ticker{
+    width: 60%;
+    padding-left: 30px;
+    padding-bottom: 20px;
+    height: fit-content;
+    color: white;
+} */

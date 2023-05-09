@@ -36,6 +36,27 @@ const Model = () => {
         setloading(false)
         setselectedfile(null)
     }
+    const uploadReels = async()=>{
+        if(loading)return;
+        setloading(true)
+
+        const docRef = await addDoc(collection(db,'reels'),{
+            username:session?.user?.username,
+            caption:captionRef.current.value,
+            profileImage:session?.user?.image,
+            timestamp:serverTimestamp()
+        })
+        const imageRef = ref(storage, `reels/${docRef.id}/video`)
+        await uploadString(imageRef,selectedfile,"data_url").then(async snapshot =>{
+            const downloadURL = await getDownloadURL(imageRef);
+            await updateDoc(doc(db,'reels',docRef.id),{
+                image:downloadURL
+            })
+        })
+        setopen(false)
+        setloading(false)
+        setselectedfile(null)
+    }
     const addImageToPost = (e)=>{
         const reader = new FileReader()
         if(e.target.files[0]){
