@@ -35,7 +35,6 @@ function Onepost({id,username,userImage,img,caption,time}){
       const unsubscribe = onSnapshot(query(collection(db,'posts',id,'likes'),orderBy('timestamp','desc')),snapshot=>{
         setlikes(snapshot.docs)
        })
-       console.log(likes);
        return ()=>{
         unsubscribe()
        }

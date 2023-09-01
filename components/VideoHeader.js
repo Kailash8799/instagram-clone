@@ -14,7 +14,7 @@ const VideoHeader = ({stop}) => {
         </div>
         <div className={styles.pausebtn}>
         <FaPlay 
-            className={` text-white ${stop ? "" : "hidden"} dark:text-white
+            className={`absolute top-[50%] right-[50%] text-white ${stop ? "" : "hidden"} dark:text-white
         `}
         />
         </div>

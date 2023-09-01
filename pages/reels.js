@@ -23,7 +23,7 @@ const Reels = ({setProgress}) => {
     setspinner(true)
     const unsubscribe = onSnapshot(query(collection(db,'reels'),orderBy('timestamp','desc')),snapshot=>{
       setallvideos(snapshot.docs)
-      console.log(snapshot.docs[0].data())
+      // console.log(snapshot.docs[0].data())
       setspinner(false)
     })
     return ()=>{

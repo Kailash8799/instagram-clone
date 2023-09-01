@@ -11,7 +11,6 @@ const Post = () => {
         setspinner(true)
         const unsubscribe = onSnapshot(query(collection(db,'posts'),orderBy('timestamp','desc')),snapshot=>{
           setposts(snapshot.docs)
-          console.log((snapshot.docs).map((it)=>{return it.id}));
        })
        setspinner(false)
        return ()=>{

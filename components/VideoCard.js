@@ -40,7 +40,7 @@ const VideoCard = ({id,username,profileImage,video,caption,time,mensition,song})
     }, [db,id,likes])
     
   return (
-    <div className='videoCard'>
+    <div className='relative videoCard'>
        <SideFooter likes={likes} comment={comment} share={share}/>
         <div className="spinner_video"></div>
         <VideoHeader stop={stop}/>
